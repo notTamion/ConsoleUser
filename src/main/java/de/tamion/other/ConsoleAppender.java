@@ -20,5 +20,6 @@ public class ConsoleAppender extends AbstractAppender {
     @Override
     public void append(LogEvent e) {
         ConsoleUser.consoleusers.forEach(player -> player.sendMessage(e.getMessage().getFormattedMessage()));
+        ConsoleUser.tempconsoleusers.forEach(player -> player.sendMessage(e.getMessage().getFormattedMessage()));
     }
 }

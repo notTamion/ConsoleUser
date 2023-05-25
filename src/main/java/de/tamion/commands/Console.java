@@ -6,6 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitScheduler;
 import org.jetbrains.annotations.NotNull;
 
 public class Console implements CommandExecutor {
@@ -30,8 +31,18 @@ public class Console implements CommandExecutor {
                 p.sendMessage("You are now a console user");
             }
         } else {
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), String.join(" ", args));
-            p.sendMessage("Dispatched Command");
+            if (!ConsoleUser.consoleusers.contains(p)) {
+                ConsoleUser.tempconsoleusers.add(p);
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), String.join(" ", args));
+                p.sendMessage("Dispatched Command");
+                BukkitScheduler scheduler = Bukkit.getScheduler();
+                scheduler.runTaskLater(ConsoleUser.getPlugin(), () -> {
+                    ConsoleUser.tempconsoleusers.remove(p);
+                }, 20L);
+            } else {
+                p.sendMessage("Please just write out the command");
+                return false;
+            }
         }
         return true;
     }
