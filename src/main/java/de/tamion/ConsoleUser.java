@@ -28,6 +28,8 @@ public final class ConsoleUser extends JavaPlugin {
 
         Logger log = (Logger) LogManager.getRootLogger();
         log.addAppender(new ConsoleAppender());
+
+        Metrics metrics = new Metrics(this, 19002);
     }
 
     @Override
