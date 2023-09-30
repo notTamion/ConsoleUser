@@ -6,10 +6,10 @@ import org.apache.logging.log4j.core.appender.AbstractAppender;
 import org.apache.logging.log4j.core.config.plugins.Plugin;
 import org.apache.logging.log4j.core.layout.PatternLayout;
 
-@Plugin(name = "ConsoleAppender", category = "Core", elementType = "appender", printObject = true)
+@Plugin(name = "ConsolePluginConsoleAppender", category = "Core", elementType = "appender", printObject = true)
 public class ConsoleAppender extends AbstractAppender {
     public ConsoleAppender() {
-        super("ConsoleAppender", null, PatternLayout.newBuilder().withPattern("[%d{HH:mm:ss} %level]: %msg").build());
+        super("ConsolePluginConsoleAppender", null, PatternLayout.newBuilder().withPattern("[%d{HH:mm:ss} %level]: %msg").build());
     }
 
     @Override
