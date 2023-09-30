@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public final class ConsoleUser extends JavaPlugin {
 
     public static ArrayList<Player> consoleusers = new ArrayList<>();
+    public static ArrayList<Player> tempconsoleusers = new ArrayList<>();
     private static ConsoleUser plugin;
     @Override
     public void onEnable() {
