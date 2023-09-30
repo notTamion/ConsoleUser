@@ -1,0 +1,8 @@
+name: ConsoleUser
+version: '${project.version}'
+main: de.tamion.ConsoleUser
+api-version: 1.19
+authors: [Tamion]
+description: Allows you to turn your chat into the Console.
+commands:
+  console:
